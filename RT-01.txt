@@ -49,5 +49,12 @@ encapsulation dot1q 50
 ip address 172.16.0.121 255.255.255.248
 ipv6 address 2001:DB8:0:50::1/64 
 ipv6 address FE80::1 link-local
-do wr
 exit
+interface s0/0/0
+ip add 189.100.0.1 255.255.255.252
+ipv6 add 2001:db8:faca::1/64
+no shutdown
+exit
+ip route 0.0.0.0 0.0.0.0 189.100.0.2
+ipv6 route ::/0 2001:DB8:FACA::2
+do wr
